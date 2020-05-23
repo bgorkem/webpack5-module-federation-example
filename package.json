@@ -1,0 +1,16 @@
+{
+  "name": "webpack-5-lerna-module-federation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/shell",
+    "packages/lib1"
+  ],
+
+  "scripts": {
+    "start": "lerna run --scope @stack-demo/* --parallel start",
+    "clean": "lerna run --scope @stack-demo/* --parallel clean"
+  }
+}
