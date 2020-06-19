@@ -7,6 +7,14 @@ module.exports = {
   mode: 'development',
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
+    before: function (app, server, compiler) {
+      app.get('*', (req, res, next) => {
+        setTimeout(() => {
+          console.log('slowing down 1sec');
+          next();
+        }, 1000);
+      });
+    },
     port: 3002,
   },
   output: {

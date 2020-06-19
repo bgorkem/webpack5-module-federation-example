@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import RemoteReactComponent from './ReactRemoteComponent';
 
 const RemoteButton = React.lazy(() => import('lib1/Button'));
 
@@ -6,19 +7,18 @@ const App = () => {
   const [shown, setShown] = useState(false);
   return (
     <div>
-      <h1>Shell is here</h1>
-      <h2>Lib 1 Button below</h2>
+      <h1>Shell</h1>
       <button
         onClick={() => {
           setShown(true);
         }}
       >
-        Show Button
+        Load Button from Lib
       </button>
       {shown && (
-        <React.Suspense fallback="Loading Button">
-          <RemoteButton />
-        </React.Suspense>
+        <section style={{ marginTop: 10, backgroundColor: 'orange', border: '1', padding: 20, width: '50vw' }}>
+          <RemoteReactComponent url="http://localhost:3002/remoteEntry.js" module="Button" scope="lib1" />
+        </section>
       )}
     </div>
   );
