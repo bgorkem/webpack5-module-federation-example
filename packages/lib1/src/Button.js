@@ -6,7 +6,7 @@ const Button = () => (
       console.log('pressed');
     }}
   >
-    Lib1 Button
+    Button from Lib1
   </button>
 );
 
